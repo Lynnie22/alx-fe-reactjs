@@ -9,7 +9,7 @@ import Footer from './components/Footer'
 import userProfile from './components/UserProfile'
 
 function App() {
-
+  const [count, setCount] = useState(0)
   return (
     <>
       <div>
