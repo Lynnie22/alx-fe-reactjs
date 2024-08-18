@@ -7,8 +7,8 @@ import Header from './components/Header'
 import MainContent from './components/MainContent'
 import Footer from './components/Footer'
 import UserProfile from './components/UserProfile'
-import ProfilePage from './ProfilePage';
-import { UserProvider } from './UserContext';
+import ProfilePage from './components/ProfilePage'
+import { UserProvider } from './components/UserContext'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,8 +20,8 @@ function App() {
       <Header />
       <MainContent />
       <UserProvider value={userData}>
-      <ProfilePage />
-    </UserProvider>
+        <ProfilePage />
+      </UserProvider>
       <Footer />
       <UserProfile name="Alice" age="25" bio="Loves hiking and photography"/>
         <a href="https://vitejs.dev" target="_blank">
