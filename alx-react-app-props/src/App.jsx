@@ -7,15 +7,21 @@ import Header from './components/Header'
 import MainContent from './components/MainContent'
 import Footer from './components/Footer'
 import UserProfile from './components/UserProfile'
+import ProfilePage from './ProfilePage';
+import { UserProvider } from './UserContext';
 
 function App() {
   const [count, setCount] = useState(0)
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
   return (
     <>
       <div>
       <WelcomeMessage />
       <Header />
       <MainContent />
+      <UserProvider value={userData}>
+      <ProfilePage />
+    </UserProvider>
       <Footer />
       <UserProfile name="Alice" age="25" bio="Loves hiking and photography"/>
         <a href="https://vitejs.dev" target="_blank">
