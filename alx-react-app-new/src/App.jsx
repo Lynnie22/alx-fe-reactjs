@@ -8,9 +8,13 @@ import MainContent from './components/MainContent'
 import Footer from './components/Footer'
 import UserProfile from './components/UserProfile'
 import Counter from './components/Counter'
+import ProfilePage from './ProfilePage';
+import { UserProvider } from './UserContext';
 
 function App() {
   const [count, setCount] = useState(0)
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
+
   return (
     <>
       <div>
@@ -19,6 +23,9 @@ function App() {
       <MainContent />
       <Counter />
       <Footer />
+      <UserProvider value={userData}>
+      <ProfilePage />
+    </UserProvider>
       <UserProfile name="Alice" age="25" bio="Loves hiking and photography"/>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
