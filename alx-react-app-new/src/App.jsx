@@ -17,7 +17,7 @@ function App() {
       <WelcomeMessage />
       <Header />
       <MainContent />
-      <Counter/>
+      <Counter />
       <Footer />
       <UserProfile name="Alice" age="25" bio="Loves hiking and photography"/>
         <a href="https://vitejs.dev" target="_blank">
