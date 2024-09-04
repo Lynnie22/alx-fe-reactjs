@@ -6,6 +6,7 @@ const RegistrationForm = () => {
         email: "",
         password:"",
     })
+    const [err, setErr] = useState("")
 
     const handleChange = (e) => {
         const {name , value} = e.target
@@ -17,8 +18,11 @@ const RegistrationForm = () => {
         e.preventDefault();
 
         if (!email || !password || !username) {
-            alert("input feilds cannot be empty");
+            setErr("All Feilds must be filled");
+            return;
         }
+        setErr("");
+        console.log("submitted" , formData);
     }
 
   return (
@@ -27,6 +31,7 @@ const RegistrationForm = () => {
         <input type="text" name='email' id='email' value={formData.email} onChange={handleChange}/>
         <input type="password" name='password' id='password' value={formData.password} onChange={handleChange} />
         <button type='submit'>Submit</button>
+        <div style={{color: "red"}}>{err}</div>
     </form>
   )
 }
