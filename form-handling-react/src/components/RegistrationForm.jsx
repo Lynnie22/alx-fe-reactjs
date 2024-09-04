@@ -1,10 +1,7 @@
 import { useState } from 'react'
 
 const RegistrationForm = () => {
-    const [formData, setFormData] = useState({
-        username: "",
-        email: "",
-        password:"",
+    const [username, setUsername] = useState("");
     })
     const [err, setErr] = useState("")
 
@@ -27,7 +24,7 @@ const RegistrationForm = () => {
 
   return (
     <form action="" onSubmit={handleSubmit}>
-        <input type="text" name="username" id="username" value={formData.username} onChange={handleChange}/>
+        <input type="text" name="username" id="username" value={username} onChange={handleChange}/>
         <input type="text" name='email' id='email' value={formData.email} onChange={handleChange}/>
         <input type="password" name='password' id='password' value={formData.password} onChange={handleChange} />
         <button type='submit'>Submit</button>
