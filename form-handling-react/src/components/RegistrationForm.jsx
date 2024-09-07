@@ -1,21 +1,13 @@
 import { useState } from 'react'
 
 const RegistrationForm = () => {
-    // const [formData, setFormData] = useState({
-    //     username: "",
-    //     email: "",
-    //     password:"",
-    // })
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
-
-    const [err, setErr] = useState("")
+    const [err, setErr] = useState({});
 
     const handleChange = (e) => {
-        const {name , value} = e.target
-        // setFormData({...formData , [name]: value})
+        const { name, value } = e.target;
 
         if (name === "email") {
             setEmail(value);
@@ -24,31 +16,81 @@ const RegistrationForm = () => {
         } else if (name === "username") {
             setUsername(value);
         }
-    }
+    };
+
+    const validateForm = () => {
+        let formErrors = {};
+        let isValid = true;
+
+        if (!username.trim()) {
+            formErrors.username = "Username is required";
+            isValid = false;
+        }
+
+        if (!email.trim()) {
+            formErrors.email = "Email is required";
+            isValid = false;
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            formErrors.email = "Email is invalid";
+            isValid = false;
+        }
+
+        if (!password.trim()) {
+            formErrors.password = "Password is required";
+            isValid = false;
+        } else if (password.length < 6) {
+            formErrors.password = "Password must be at least 6 characters";
+            isValid = false;
+        }
+
+        setErr(formErrors);
+        return isValid;
+    };
 
     const handleSubmit = (e) => {
-        // const { email, password, username } = formData;
         e.preventDefault();
 
-        if (!email || !password || !username) {
-            setErr("All Feilds must be filled");
-            return;
+        if (validateForm()) {
+            console.log("Form submitted", { email, password, username });
+            setErr({});  // Clear errors after successful form submission
         }
-        setErr("");
+    };
 
-        // console.log("submitted" , formData);
+    return (
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <input
+                type="text"
+                name="username"
+                id="username"
+                value={username}
+                onChange={handleChange}
+                placeholder="Username"
+            />
+            {err.username && <div style={{ color: "red" }}>{err.username}</div>}
 
-    }
+            <input
+                type="email"
+                name="email"
+                id="email"
+                value={email}
+                onChange={handleChange}
+                placeholder="Email"
+            />
+            {err.email && <div style={{ color: "red" }}>{err.email}</div>}
 
-  return (
-    <form action="" onSubmit={handleSubmit} style={{display:"flex", flexDirection: "column", gap:"1rem"}}>
-        <input type="text" name="username" id="username" value={username} onChange={handleChange} placeholder='Username'/>
-        <input type="email" name='email' id='email' value={email} onChange={handleChange} placeholder='email'/>
-        <input type="password" name='password' id='password' value={password} onChange={handleChange} placeholder='password' />
-        <button type='submit'>Submit</button>
-        <div style={{color:'red'}}>{err}</div>
-    </form>
-  )
+            <input
+                type="password"
+                name="password"
+                id="password"
+                value={password}
+                onChange={handleChange}
+                placeholder="Password"
+            />
+            {err.password && <div style={{ color: "red" }}>{err.password}</div>}
+
+            <button type="submit">Submit</button>
+        </form>
+    );
 }
 
-export default RegistrationForm
+export default RegistrationForm;
