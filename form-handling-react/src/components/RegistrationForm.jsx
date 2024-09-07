@@ -4,7 +4,7 @@ const RegistrationForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
-    const [error, setError] = useState({});
+    const [error, setErrors] = useState({});
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -43,7 +43,7 @@ const RegistrationForm = () => {
             isValid = false;
         }
 
-        setError(formErrors);
+        setErrors(formErrors);
         return isValid;
     };
 
@@ -52,7 +52,7 @@ const RegistrationForm = () => {
 
         if (validateForm()) {
             console.log("Form submitted", { email, password, username });
-            setError({});  // Clear errors after successful form submission
+            setErrors({});  // Clear errors after successful form submission
         }
     };
 
