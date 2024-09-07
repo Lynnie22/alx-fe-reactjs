@@ -1,7 +1,10 @@
 import { useState } from 'react'
 
 const RegistrationForm = () => {
-    const [username, setUsername] = useState("");
+    const [formData, setFormData] = useState({
+        username: "",
+        email: "",
+        password:"",
     })
     const [err, setErr] = useState("")
 
@@ -19,16 +22,17 @@ const RegistrationForm = () => {
             return;
         }
         setErr("");
+
         console.log("submitted" , formData);
     }
 
   return (
-    <form action="" onSubmit={handleSubmit}>
-        <input type="text" name="username" id="username" value={username} onChange={handleChange}/>
-        <input type="text" name='email' id='email' value={formData.email} onChange={handleChange}/>
-        <input type="password" name='password' id='password' value={formData.password} onChange={handleChange} />
+    <form action="" onSubmit={handleSubmit} style={{display:"flex", flexDirection: "column", gap:"1rem"}}>
+        <input type="text" name="username" id="username" value={formData.username} onChange={handleChange} placeholder='Username'/>
+        <input type="email" name='email' id='email' value={formData.email} onChange={handleChange} placeholder='email'/>
+        <input type="password" name='password' id='password' value={formData.password} onChange={handleChange} placeholder='password' />
         <button type='submit'>Submit</button>
-        <div style={{color: "red"}}>{err}</div>
+        <div style={{color:'red'}}>{err}</div>
     </form>
   )
 }
