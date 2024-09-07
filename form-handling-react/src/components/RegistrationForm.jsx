@@ -22,12 +22,12 @@ const RegistrationForm = () => {
         let formErrors = {};
         let isValid = true;
 
-        if (!username.trim()) {
+        if (!username) {
             formErrors.username = "Username is required";
             isValid = false;
         }
 
-        if (!email.trim()) {
+        if (!email) {
             formErrors.email = "Email is required";
             isValid = false;
         } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -35,7 +35,7 @@ const RegistrationForm = () => {
             isValid = false;
         }
 
-        if (!password.trim()) {
+        if (!password) {
             formErrors.password = "Password is required";
             isValid = false;
         } else if (password.length < 6) {
