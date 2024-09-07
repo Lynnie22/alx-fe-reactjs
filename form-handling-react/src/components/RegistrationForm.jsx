@@ -4,7 +4,7 @@ const RegistrationForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
-    const [err, setErr] = useState({});
+    const [error, setError] = useState({});
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -43,7 +43,7 @@ const RegistrationForm = () => {
             isValid = false;
         }
 
-        setErr(formErrors);
+        setError(formErrors);
         return isValid;
     };
 
@@ -52,7 +52,7 @@ const RegistrationForm = () => {
 
         if (validateForm()) {
             console.log("Form submitted", { email, password, username });
-            setErr({});  // Clear errors after successful form submission
+            setError({});  // Clear errors after successful form submission
         }
     };
 
@@ -66,7 +66,7 @@ const RegistrationForm = () => {
                 onChange={handleChange}
                 placeholder="Username"
             />
-            {err.username && <div style={{ color: "red" }}>{err.username}</div>}
+            {error.username && <div style={{ color: "red" }}>{error.username}</div>}
 
             <input
                 type="email"
@@ -76,7 +76,7 @@ const RegistrationForm = () => {
                 onChange={handleChange}
                 placeholder="Email"
             />
-            {err.email && <div style={{ color: "red" }}>{err.email}</div>}
+            {error.email && <div style={{ color: "red" }}>{error.email}</div>}
 
             <input
                 type="password"
@@ -86,7 +86,7 @@ const RegistrationForm = () => {
                 onChange={handleChange}
                 placeholder="Password"
             />
-            {err.password && <div style={{ color: "red" }}>{err.password}</div>}
+            {error.password && <div style={{ color: "red" }}>{error.password}</div>}
 
             <button type="submit">Submit</button>
         </form>
