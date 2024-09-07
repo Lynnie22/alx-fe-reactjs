@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 const Profile = () => {
   return (
@@ -8,6 +8,8 @@ const Profile = () => {
       <Link to="details">Profile Details</Link> |{" "}
       <Link to="settings">Profile Settings</Link>
         </nav>
+
+        <Outlet />
     </div>
   )
 }
