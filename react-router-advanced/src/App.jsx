@@ -40,18 +40,37 @@
 
 
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 import Profile from './components/Profile';
 import ProfileSettings from './components/ProfileSettings';
 import ProfileDetails from './components/ProfileDetails';
 import BlogPost from './components/BlogPost';
+import ProtectedRoute from './components/ProtectedRoute';
+import Login from './components/Login';
+import { useState } from 'react';
+
+
+
 
 function App() {
+// Simulated authentication state (false means not logged in, true means logged in)
+const [isAuthenticated, setIsAuthenticated] = useState(false);
   return (
     <Router>
+
       <Routes>
+        {/* Login route */}
+        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+
         {/* Profile page route with nested routes */}
-        <Route path="/" element={<Profile />}>
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Profile />
+            </ProtectedRoute>
+          }
+        >
           <Route path="details" element={<ProfileDetails />} />
           <Route path="settings" element={<ProfileSettings />} />
         </Route>
