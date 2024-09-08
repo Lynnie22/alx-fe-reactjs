@@ -77,6 +77,8 @@ const [isAuthenticated, setIsAuthenticated] = useState(false);
         
         {/* Dynamic blog post route */}
         <Route path="blog/:postId" element={<BlogPost />} />
+
+        
       </Routes>
     </Router>
   );
