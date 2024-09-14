@@ -8,18 +8,18 @@ const AddRecipeForm = () => {
     const [steps, setSteps] = useState("");
     const [error, setErrors] = useState("")
 
-    const handleChange = (e)=> {
-        const {name, value} = e.target;
+    // const handleChange = (e)=> {
+    //     const {name, value} = e.target;
 
-        if (name === "title"){
-            setTitle(value.trim());
-        }else if (name === "ingredients") {
-            setIngredients(value.trim());
-        }else if (name === "steps" ) {
-            setSteps(value.trim());
-        }
+    //     if (name === "title"){
+    //         setTitle(value.trim());
+    //     }else if (name === "ingredients") {
+    //         setIngredients(value.trim());
+    //     }else if (name === "steps" ) {
+    //         setSteps(value.trim());
+    //     }
 
-    }
+    // }
 
     const validateForm = () => {
        let formErrors = {};
@@ -59,19 +59,19 @@ const AddRecipeForm = () => {
       <form onSubmit={handleSubmit}>
         <div>
             <label htmlFor="title">Recipe Title</label>
-            <input type="text" id='title' name="title" value={title} onChange={handleChange} className='mt-1 p-2 block w-full border border-gray-300 rounded-md'/>
+            <input type="text" id='title' name="title" value={title} onChange={e=>{setTitle(e.target.value)}} className='mt-1 p-2 block w-full border border-gray-300 rounded-md'/>
             {error.title && <div style={{ color: "red" }}>{error.title}</div>}
         </div>
         
         <div>
             <label htmlFor="ingedients">Ingredients</label>
-            <textarea type="text" id='ingredients' name="ingredients" value={ingredients} onChange={handleChange} className='mt-1 p-2 block w-full border border-gray-300 rounded-md' />
+            <textarea type="text" id='ingredients' name="ingredients" value={ingredients} onChange={e=>{setIngredients(e.target.value)}} className='mt-1 p-2 block w-full border border-gray-300 rounded-md' />
             {error.ingredients && <div style={{ color: "red" }}>{error.ingredients}</div>}
         </div>
         
         <div>
             <label htmlFor="steps">Preparation Steps</label>
-            <textarea type="text" id='steps' name="steps" value={steps} onChange={handleChange} className='mt-1 p-2 block w-full border border-gray-300 rounded-md'/>
+            <textarea type="text" id='steps' name="steps" value={steps} onChange={e=>{setSteps(e.target.value)}} className='mt-1 p-2 block w-full border border-gray-300 rounded-md'/>
             {error.steps && <div style={{ color: "red" }}>{error.steps}</div>}
         </div>
 
