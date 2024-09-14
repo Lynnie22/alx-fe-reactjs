@@ -1,16 +1,23 @@
 import {useState , useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import recipeData from '../data.json';
 
 
 const HomePage = () => {
     const [recipes, setRecipes] = useState([]);
 
+
+    // useEffect(() => {
+    //     fetch('/data.json')
+    //       .then(response => response.json())
+    //       .then(data => setRecipes(data))
+    //       .catch(error => console.error('Error fetching data:', error));
+    //   }, []);
+
     useEffect(() => {
-        fetch('/data.json')
-          .then(response => response.json())
-          .then(data => setRecipes(data))
-          .catch(error => console.error('Error fetching data:', error));
-      }, []);
+        // Instead of fetching, directly set the imported JSON data
+        setRecipes(recipeData);
+    }, []);
 
   return (
 <div className="container mx-auto p-4 ">
