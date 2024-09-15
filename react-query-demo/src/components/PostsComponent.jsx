@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 
 // Define a fetch function that can be used to fetch data from an API
 const fetchPosts = async () => {
-    const res = await fetch('https://api.example.com/data');
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
     return res.json();
 };
  
