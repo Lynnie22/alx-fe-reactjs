@@ -11,12 +11,12 @@ const fetchPosts = async () => {
  
 const PostsComponent = () => {
     // Use the useQuery hook to handle data fetching and caching
-    const { data, error, isLoading } = useQuery('fetchPosts', fetchPosts);
+    const { data, isError, isLoading } = useQuery('fetchPosts', fetchPosts);
 
     // Handle loading state
     if (isLoading) return <div>Loading...</div>;
     // Handle error state
-    if (error) return <div>Error loading data</div>;
+    if (isError) return <div>Error loading data</div>;
 
   return (
     <div>
