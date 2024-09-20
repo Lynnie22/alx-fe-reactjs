@@ -1,21 +1,12 @@
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Search from './components/Search'
 
-
-function App() {
+const App = () => {
   return (
-    <Router>
-      <div>
-        <Routes>
-          {/* Route for the home/search page */}
-          <Route path="/" element={<Search />} />
-
-          {/* Route for the user profile page */}
-          <Route path="/user/:username" element={<UserProfile />} />
-        </Routes>
-      </div>
-    </Router>
-  );
+    <div>
+      <Search />
+    </div>
+  )
 }
 
-export default App;
+export default App
