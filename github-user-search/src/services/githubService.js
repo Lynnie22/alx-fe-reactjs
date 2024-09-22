@@ -1,24 +1,24 @@
 import axios from "axios";
 
-const fetchUserData = async(user, location, minRepos, page=1, perPage=10) => {
+const fetchUserData = async(user, location, minRepos, page=1, perPage=3) => {
     try {
-        // Start building the query string
+        // Building the query string
         let query = `q=${user}`;
         
-        // Add location if it's provided
+        // location if provided
         if (location) {
             query += `+location:${location}`;
         }
 
-        // Add minRepos if it's provided
+        // minRepos if provided
         if (minRepos) {
             query += `+repos:>${minRepos}`;
         }
 
-        // Construct the full API URL
-        const url = `https://api.github.com/search/users?${query}&page=${page}&per_page=${perPage}`;
+        // Constructing the full API URL
+        const url = `"https://api.github.com/search/users?q"`;
         
-        // Make the API request
+        // Making the API request
         const response = await axios.get(url);
         
         // Return the data

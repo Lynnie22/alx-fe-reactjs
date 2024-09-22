@@ -3,7 +3,7 @@ import Search from './components/Search'
 
 const App = () => {
   return (
-    <div >
+    <div className='w-full h-screen bg'>
       <Search />
     </div>
   )

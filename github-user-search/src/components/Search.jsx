@@ -152,7 +152,7 @@ const Search = () => {
 
     const [currentPage, setCurrentPage] = useState(1); // Current page
     const [totalUsers, setTotalUsers] = useState(0); // Total users
-    const perPage = 10; // Results per page
+    const perPage = 3; // Results per page
 
     // Fetch data function
     const fetchData = async (page = 1) => {
@@ -204,9 +204,9 @@ const Search = () => {
     };
 
     return (
-        <div className='w-full h-screen flex flex-col items-center justify-center bg-gray-100 p-6'>
+        <div className='w-full h-screen flex flex-col items-center justify-center  p-6'>
             {/* Search Form */}
-            <div className='w-full max-w-md bg-white p-6 rounded-lg shadow-md'>
+            <div className='w-full max-w-md glass p-6 rounded-lg shadow-md'>
                 <h1 className='text-center text-2xl font-bold mb-4 text-gray-800'>GitHub User Search</h1>
                 <form onSubmit={handleSubmit} className='space-y-4'>
                     <input
@@ -252,8 +252,8 @@ const Search = () => {
                                     <img src={user.avatar_url} alt={`${user.login} avatar`} width="80" className='rounded-full border border-gray-300' />
                                     <div>
                                         <h3 className='text-lg font-semibold'>{user.login}</h3>
-                                        <p className='text-sm text-gray-500'>Location: {user.location || 'N/A'}</p>
-                                        <p className='text-sm text-gray-500'>Repositories: {user.public_repos || 'N/A'}</p>
+                                        <p className='text-sm text-gray-500'>Location: {user.location}</p>
+                                        <p className='text-sm text-gray-500'>Repositories: {user.public_repos}</p>
                                         <a href={user.html_url} target='_blank' rel='noopener noreferrer' className='text-blue-500 hover:underline'>
                                             View Profile
                                         </a>
