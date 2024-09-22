@@ -161,7 +161,6 @@ const Search = () => {
 
         try {
             const data = await fetchUserData(user, location, minRepos, page, perPage);
-            console.log("Fetched data: ", data);
             setData(data.users); // Set users from response
             setTotalUsers(data.totalCount); // Set total user count
         } catch (error) {
