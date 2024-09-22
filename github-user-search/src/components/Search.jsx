@@ -207,7 +207,7 @@ const Search = () => {
         <div className='w-full h-screen flex flex-col items-center justify-center  p-6'>
             {/* Search Form */}
             <div className='w-full max-w-md glass p-6 rounded-lg shadow-md'>
-                <h1 className='text-center text-2xl font-bold mb-4 text-gray-800'>GitHub User Search</h1>
+                <h1 className='text-center text-2xl font-bold mb-4 text-orange-100'>GitHub User Search</h1>
                 <form onSubmit={handleSubmit} className='space-y-4'>
                     <input
                         type="text"
@@ -232,7 +232,7 @@ const Search = () => {
                     />
                     <button 
                         type='submit' 
-                        className='w-full bg-blue-500 text-white p-3 rounded-md font-semibold hover:bg-blue-600'>
+                        className='w-full bg-orange-900 text-white p-3 rounded-md font-semibold hover:bg-orange-700 transition-all ease-in'>
                         Search User
                     </button>
                 </form>
