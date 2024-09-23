@@ -164,7 +164,7 @@ const Search = () => {
             setData(data.users); // Set users from response
             setTotalUsers(data.totalCount); // Set total user count
         } catch (error) {
-            setError("An error occurred while fetching user data.", error);
+            setError("Looks like we can't find the user", error);
         } finally {
             setLoading(false);
         }
@@ -206,7 +206,7 @@ const Search = () => {
         <div className='w-full h-screen flex flex-col items-center justify-center  p-6'>
             {/* Search Form */}
             <div className='w-full max-w-md glass p-6 rounded-lg shadow-md'>
-                <h1 className='text-center text-2xl font-bold mb-4 text-orange-100'>GitHub User Search</h1>
+                <h1 className='text-center text-2xl font-bold mb-4 text-orange-900'>GitHub User Search</h1>
                 <form onSubmit={handleSubmit} className='space-y-4'>
                     <input
                         type="text"
